@@ -2,7 +2,10 @@ import { useState } from 'react';
 import Button from './Button';
 import Input from './Input';
 
-function RegisterForm() {
+interface RegisterFormProps {
+  className?: string;
+}
+function RegisterForm({ className }: RegisterFormProps) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +17,7 @@ function RegisterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-stone-500 max-w-md p-5 flex flex-col">
+    <form onSubmit={handleSubmit} className={`bg-stone-500 max-w-md p-5 flex flex-col ${className}`}>
       <h1 className="text-2xl font-bold mb-5">Register</h1>
       <Input
         id="username"
